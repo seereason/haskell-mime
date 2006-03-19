@@ -4,6 +4,7 @@ import Text.ParserCombinators.Parsec
 
 import MIME
 import RFC2045
+import RFC2046
 
 testP p str = print (parse p str str) 
 

@@ -14,7 +14,10 @@ data FieldError
     = NoSuchField String
     | ValueParseError ParseError
       deriving Show
-                
+
+-- NOTE: perhaps the get* fuctions should take an optional default
+-- paramater to return. Or, since in many cases there is a predefined
+-- default, a Bool flag that says return default if not found.
 
 -- | Get the MIME-Version -- if the field appears more than once, we use the first one
 -- FIXME: needs to strip comments too.
@@ -68,15 +71,13 @@ contentType =
        st <- token
        semanticCFWS
        p <- many parameter
-       semanticCFWS
        return $ ContentType (t,st) p
 
 type Parameter = (String, String)
 
 parameter :: CharParser st Parameter
 parameter =
-    do semanticCFWS
-       char ';'
+    do char ';'
        semanticCFWS
        a <- token
        semanticCFWS

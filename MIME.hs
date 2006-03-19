@@ -404,4 +404,4 @@ obsFWS =
 
 -- | Return just the whitespace with folding and comments removed
 semanticCFWS :: CharParser st String
-semanticCFWS = liftM concat $ sepBy1 (option [] obsFWS) comment
+semanticCFWS = liftM concat $ sepBy1 (option [] ((try fws) <|> obsFWS)) comment
