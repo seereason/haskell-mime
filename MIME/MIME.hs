@@ -1,10 +1,10 @@
-module MIME where
+module MIME.MIME where
 
 import Control.Monad
 import Data.List hiding (group)
 import Text.ParserCombinators.Parsec
 
--- |Is there anything type-specific about a MIME document? Perhaps the
+-- Is there anything type-specific about a MIME document? Perhaps the
 -- internal structure of the stuff should be reflected in the type? So
 -- that you can only pass a MIME document to a function than can
 -- handle it? That might be nice, but you would have to know all the

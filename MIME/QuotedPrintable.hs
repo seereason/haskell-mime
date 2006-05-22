@@ -1,11 +1,11 @@
-module QuotedPrintable where
+module MIME.QuotedPrintable where
 
 import Control.Monad
 import Data.Char
 import Numeric (readHex)
 import Text.ParserCombinators.Parsec
 
-import MIME
+import MIME.MIME
 
 decode :: String -> Either ParseError [String]
 decode str = either Left Right $ parse quotedPrintable str str

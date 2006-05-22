@@ -1,4 +1,4 @@
-module RFC2822 where
+module MIME.RFC2822 where
 
 import Text.ParserCombinators.Parsec
 
@@ -42,9 +42,6 @@ quotedPair =
 
 -- * 3.2.3 Folding white space and comments
 
-
-
--- *
 
 obsText :: CharParser st Char
 obsText = fail "obsText not implemented yet"

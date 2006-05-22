@@ -1,11 +1,13 @@
-module RFC2045 where
+module MIME.RFC2045 where
+
+-- Standard GHC Modules
 
 import Data.List
 import Text.ParserCombinators.Parsec hiding (token)
 
--- * Local Modules
+-- Local Modules
 
-import MIME
+import MIME.MIME
 
 -- * MIME-Version Header Field
 -- RFC2822 § 4

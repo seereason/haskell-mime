@@ -1,10 +1,10 @@
-module RFC2046 where
+module MIME.RFC2046 where
 
 import Text.ParserCombinators.Parsec
 
-import MIME
-import RFC2045
-import qualified Base64
+import MIME.MIME
+import MIME.RFC2045
+import qualified MIME.Base64 as Base64
 
 data MultipartMessage
     = Part ContentType String

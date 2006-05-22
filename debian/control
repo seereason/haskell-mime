@@ -1,0 +1,32 @@
+Source: haskell-mime
+Priority: optional
+Section: devel
+Maintainer: Jeremy Shaw <jeremy@n-heptane.com>
+Build-Depends: debhelper (>= 4.0.0), haskell-devscripts (>=0.5.11), ghc6 (>=6.4), libghc6-cabal-dev (>=1.1.3)
+Build-Depends-Indep: debhelper (>= 4.0.0), haddock, hugs (>= 98.200503.08), haskell-devscripts (>= 0.5.6), ghc6 (>= 6.4.1)
+Standards-Version: 3.7.2.0
+
+Package: libghc6-mime-dev
+Section: libdevel
+Architecture: any
+Depends: ${haskell:Depends}
+Description: A Haskell library for MIME processing
+ A bunch of modules for parsing various MIME messages.
+ .
+ This package contains the libraries compiled for GHC 6.
+
+Package: libhugs-mime
+Section: libdevel
+Architecture: all
+Depends: ${haskell:Depends}
+Description: A Haskell library for MIME processing
+ A bunch of modules for parsing various MIME messages.
+ .
+ This package contains the libraries compiled for Hugs.
+
+Package: haskell-mime-doc
+Section: doc
+Architecture: all
+Description: A Haskell library for MIME processing
+ A bunch of modules for parsing various MIME messages.
+

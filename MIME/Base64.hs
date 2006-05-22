@@ -1,4 +1,4 @@
-module Base64 where
+module MIME.Base64 where
 
 import Data.Bits
 import Data.Char
