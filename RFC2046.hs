@@ -23,8 +23,6 @@ saveParts dir (Part (ContentType ("image","jpeg") params) image) =
 saveParts dir (Part (ContentType ("text","plain") params) text) = putStrLn text
 saveParts dir (Mixed parts) = mapM_ (either print (saveParts dir)) parts
 
-
-
 decodeMsg :: (General2822 a) -> MultipartMessage
 decodeMsg g2822 =
     let parts = getParts 

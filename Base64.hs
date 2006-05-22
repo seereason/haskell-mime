@@ -1,6 +1,5 @@
 module Base64 where
 
-
 import Data.Bits
 import Data.Char
 import qualified Data.Map as Map
@@ -49,7 +48,7 @@ wShiftL :: Word -> Int -> Char
 wShiftL w n = wordToChar (w `shiftL` n)
 
 index4ToChar3 :: (Word, Word, Word, Word) -> (Char, Char, Char)
-index4ToChar3 (w1, w2, w3, w4) =
+index4ToChar3 (w1, w2, w3, w4) = {-# SCC "indexToChar3" #-}
     ( wordToChar (((maskBits 6 w1) `shiftL` 2) .|. (maskBits 2 (w2 `shiftR` 4)))
     , wordToChar (((maskBits 4 w2) `shiftL` 4) .|. (maskBits 4 (w3 `shiftR` 2)))
     , wordToChar (((maskBits 2 w3) `shiftL` 6) .|. (maskBits 6 (w4)))
@@ -72,4 +71,5 @@ decode' [a,b,'=','='] = let (c1,'\0','\0') = index4ToChar3 (decodeC a, decodeC b
 decode' [a,b,c,'='] = let (c1,c2,'\0') = index4ToChar3 (decodeC a,decodeC b, decodeC c,0) in [c1, c2]
 decode' (a:b:c:d:rest) = 
     let (c1,c2,c3) = index4ToChar3 (decodeC a, decodeC b, decodeC c, decodeC d) in 
-    (c1 : c2 : c3 : (decode rest))
+    (c1 : c2 : c3 : (decode' rest))
+
