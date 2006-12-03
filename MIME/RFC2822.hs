@@ -1,3 +1,4 @@
+-- |I think this module is deprecated.
 module MIME.RFC2822 where
 
 import Text.ParserCombinators.Parsec

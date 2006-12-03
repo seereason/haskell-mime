@@ -7,7 +7,7 @@ Homepage:       http://www.n-heptane.com/nhlab
 Build-Depends:  base, parsec
 Synopsis:       A library for processing MIME messages
 Exposed-modules:
-        MIME.MIME, MIME.Base64, MIME.QuotedPrintable, MIME.RFC2045, MIME.RFC2046, MIME.RFC2822
+        MIME.MIME, MIME.Base64, MIME.QuotedPrintable, MIME.RFC2045, MIME.RFC2046, MIME.DateTime
 
 -- For more complex options see:
 -- http://www.haskell.org/ghc/docs/latest/html/Cabal/

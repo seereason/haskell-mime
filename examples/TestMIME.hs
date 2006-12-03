@@ -32,7 +32,7 @@ testg2822 = testP general2822 general2822Str
 emailAddr1 = "jeremy@n-heptane.com"
 testEmailAddr1 = testP addressList emailAddr1
 
-emailAddr2 = " Jeremy Shaw <jeremy.shaw@linspireinc.com>, jeremy@n-heptane.com (i rock)"
+emailAddr2 = " Jeremy Shaw <jeremy.shaw@example.com>, jeremy@example.com (i rock)"
 testEmailAddr2 = testP addressList emailAddr2
 
 debControl :: CharParser st [[Field]]

@@ -1,4 +1,5 @@
-module MIME.QuotedPrintable where
+-- |module for decoding quoted-printable text (see RFC1521)
+module MIME.QuotedPrintable (decode, quotedPrintable) where
 
 import Control.Monad
 import Data.Char

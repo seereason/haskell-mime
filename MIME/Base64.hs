@@ -1,4 +1,6 @@
-module MIME.Base64 where
+-- |Base64 encoder\/decoder 
+-- NOTE: not written with efficiency in mind.
+module MIME.Base64 (encode, decode) where
 
 import Data.Bits
 import Data.Char
@@ -72,4 +74,3 @@ decode' [a,b,c,'='] = let (c1,c2,'\0') = index4ToChar3 (decodeC a,decodeC b, dec
 decode' (a:b:c:d:rest) = 
     let (c1,c2,c3) = index4ToChar3 (decodeC a, decodeC b, decodeC c, decodeC d) in 
     (c1 : c2 : c3 : (decode' rest))
-

@@ -1,3 +1,4 @@
+-- |a somewhat liberal parser for MIME messages (RFC2822, RFC2045, RFC2234)
 module MIME.MIME where
 
 import Control.Monad
