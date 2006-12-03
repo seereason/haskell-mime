@@ -1,11 +1,4 @@
-This package was debianised by Jack Donaldson
-<jack.donaldson@freespire.org> on Mon, May 16 2006.
-
-It was downloaded using 'darcs get
-http://darcs.freespire.org/darcs/package/' ; the homepage for the
-module is http://www.freespire.org/package.
-
-Copyright (c) 2006, Jack Donaldson
+Copyright (c) 2006, Jeremy Shaw
 
 All rights reserved.
 
