@@ -139,8 +139,6 @@ fromList froms sender = FromList froms sender
 optionalHeader :: str -> str -> (Headers str -> Headers str)
 optionalHeader field value = (OtherHeader (field, value) :)
 
-date = Rfc2822Date
-
 test msg =
     do now <- getZonedTime
        putStr $ ppMessage LF $ msg now
@@ -150,43 +148,9 @@ testSend msg =
        putStr $ ppMessage LF $ msg now
        sendmail (msg now)
 
-testMessage date =
-    (message 
-     (fromList [addrSpec "jeremy" "n-heptane.com", addrSpec "david" "linspire.com"] (addrSpec "jeremy" "n-heptane.com"))
-     (date)
-     [ to [addrSpec "jeremy.shaw" "linspire.com"]
-     , subject "rars like rar-treats!"
-     ]
-     (RFC2822Body ["i like cheese."])
-    )
-
-statusMessage date =
-    (message
-     (fromList [addrSpec "jeremy" "n-heptane.com", addrSpec "jeremy.shaw" "linspire.com"] (addrSpec "jeremy" "n-heptane.com"))
-     (date)
-     [ to [ addrSpec "tos" "linspire.com" ]
-     , subject ("Status for " ++ formatTime rfc2822TimeLocale rfc2822DateFormat date)
-     ]
-     (RFC2822Body [ "Status for " ++ formatTime rfc2822TimeLocale rfc2822DateFormat date ++ ","
-                  , ""
-                  , " (1) Meetings:"
-                  , "   - meeting about network control panel"
-                  , "   - meeting with Ingo and Zamie about CNR client theming"
-                  , ""
-                  , " (2) MIME email"
-                  , ""
-                  , "   I now have minimal support for sending email. In fact, this message was sent using my library. I still need to:"
-                  , ""
-                  , "     a) package my library"
-                  , "     b) build the latest upstream version of time library for skipjack-feisty"
-                  , "     c) figure out how to modify newdist so that it can collect some useful information to put in the email message."
-                  ]
-     ))
-      
-
 sendmail :: Message String -> IO (String, String, ExitCode)
 sendmail message =
-    do (inh, outh, errh, ph) <- runInteractiveProcess "sendmail" ["-t","-i", "-f", "jeremy.shaw@linspire.com"] Nothing Nothing
+    do (inh, outh, errh, ph) <- runInteractiveProcess "/usr/sbin/sendmail" ["-t","-i", "-f", "jeremy.shaw@linspire.com"] Nothing Nothing
 
        outm <- newEmptyMVar
        outs <- hGetContents outh
