@@ -1,3 +1,11 @@
+haskell-mime (1.1-1) unstable; urgency=low
+
+  * Bumped version
+  * Added some code for creating MIME emails
+  * Reorganized structure, breaking any existing code that uses the library
+
+ -- Jeremy Shaw <jeremy.shaw@linspireinc.com>  Thu, 15 Mar 2007 13:40:09 -0700
+
 haskell-mime (1.0-1) unstable; urgency=low
 
   * Initial Debian package.
