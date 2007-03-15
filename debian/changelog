@@ -1,3 +1,10 @@
+haskell-mime (1.2-1) unstable; urgency=low
+
+  * hardcode sendmail path to /usr/sbin/sendmail so that users can invoke
+    the sendmail command.
+
+ -- Jeremy Shaw <jeremy.shaw@linspireinc.com>  Thu, 15 Mar 2007 16:39:44 -0700
+
 haskell-mime (1.1-1) unstable; urgency=low
 
   * Bumped version
