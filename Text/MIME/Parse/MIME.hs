@@ -1,5 +1,5 @@
 -- |a somewhat liberal parser for MIME messages (RFC2822, RFC2045, RFC2234)
-module MIME.MIME where
+module Text.MIME.Parse.MIME where
 
 import Control.Monad
 import Data.List hiding (group)

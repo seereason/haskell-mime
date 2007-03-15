@@ -1,6 +1,6 @@
 -- |Base64 encoder\/decoder 
 -- NOTE: not written with efficiency in mind.
-module MIME.Base64 (encode, decode) where
+module Text.MIME.Codec.Base64 (encode, decode) where
 
 import Data.Bits
 import Data.Char

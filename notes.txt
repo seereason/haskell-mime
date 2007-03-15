@@ -1,0 +1,47 @@
+Things I want to do:
+
+ + Create multipart MIME messages
+ + Browse/Extract multipart MIME messages
+ + Transform MIME messages without unneeded modifications to content
+
+
+Creation
+--------
+
+ + via a domain specific language like oleg's html stuff
+ + via an algorithm or UI
+
+Extract
+-------
+
+ + Convert to HTML or some other unrelated format
+
+Transform
+---------
+
+ + Convert email->NNTP, etc
+
+
+What this means
+---------------
+
+Transformation means preservation of the FWS, comments, and other
+'optional' data.
+
+Extraction will often want FWS stripped.
+
+Creation can happen directly -- with intermediate AST.
+
+Does an AST help
+----------------
+
+ + transformation - definately, because there needs to be a way to
+ preserve the original formatting.
+
+ + extract - AST might allow for formatting to be preserved if
+ desired. Easy to writing something that 'flattens' the AST?
+
+ + creation - easier to manipulate a partially formed document?
+
+
+

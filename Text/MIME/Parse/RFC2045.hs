@@ -1,4 +1,4 @@
-module MIME.RFC2045 where
+module Text.MIME.Parse.RFC2045 where
 
 -- Standard GHC Modules
 
@@ -7,7 +7,7 @@ import Text.ParserCombinators.Parsec hiding (token)
 
 -- Local Modules
 
-import MIME.MIME
+import Text.MIME.Parse.MIME
 
 -- * MIME-Version Header Field
 -- RFC2822 § 4

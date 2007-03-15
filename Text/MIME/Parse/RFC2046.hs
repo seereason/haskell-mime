@@ -1,15 +1,22 @@
 -- |module for decoding multipart message into various media types
-module MIME.RFC2046 where
+module Text.MIME.Parse.RFC2046 where
 
 import Text.ParserCombinators.Parsec
 
-import MIME.MIME
-import MIME.RFC2045
-import qualified MIME.Base64 as Base64
+import Text.MIME.Parse.MIME
+import Text.MIME.Parse.RFC2045
+import qualified Text.MIME.Codec.Base64 as Base64
 
+type ParseErrorMsg = String
+
+-- NOTE: it seems like this type was designed to hold decoded data
+-- only. We should also think about create multipart mime documents.
 data MultipartMessage
     = Part ContentType [Field] String
-    | Mixed [Either String MultipartMessage]
+    | Mixed [Either ParseErrorMsg MultipartMessage]
+--    | Alternative ...
+--    | Parallel
+--    | Message 
 
 instance Show MultipartMessage where
     show (Part (ContentType ("text","plain") _) _ str) = str ++ "\n"
