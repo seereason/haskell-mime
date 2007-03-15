@@ -5,25 +5,25 @@ all: build
 
 configure: .setup-config
 .setup-config:
-	./Setup.hs configure
+	runhaskell ./Setup.hs configure
 
 build: configure
-	./Setup.hs build
+	runhaskell ./Setup.hs build
 
 install: build
-	./Setup.hs install
+	runhaskell ./Setup.hs install
 
 test:
 	runhaskell tests/Main.hs
 
 dist:
-	./Setup.hs sdist
+	runhaskell ./Setup.hs sdist
 
 haddock doc:
-	./Setup.hs haddock
+	runhaskell ./Setup.hs haddock
 
 clean:
-	-./Setup.hs clean
+	-runhaskell ./Setup.hs clean
 	-rm -rf dist
 #	$(MAKE) -C test clean
 
