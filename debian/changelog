@@ -1,3 +1,9 @@
+haskell-mime (1.2.1) unstable; urgency=low
+
+  * Make libghc6-mime-* depend on libghc6-time-*
+
+ -- Jeremy Shaw <jeremy.shaw@linspireinc.com>  Thu, 15 Mar 2007 17:10:21 -0700
+
 haskell-mime (1.2-1) unstable; urgency=low
 
   * hardcode sendmail path to /usr/sbin/sendmail so that users can invoke

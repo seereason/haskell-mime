@@ -9,7 +9,7 @@ Standards-Version: 3.7.2.0
 Package: libghc6-mime-dev
 Section: libdevel
 Architecture: any
-Depends: ${haskell:Depends}
+Depends: ${haskell:Depends}, libghc6-time-dev (>= 1.1)
 Description: A Haskell library for MIME processing
  A bunch of modules for parsing various MIME messages.
  .
@@ -18,7 +18,7 @@ Description: A Haskell library for MIME processing
 Package: libghc6-mime-prof
 Section: libdevel
 Architecture: any
-Depends: ${haskell:Depends}
+Depends: ${haskell:Depends}, libghc6-time-prof (>= 1.1)
 Description: A Haskell library for MIME processing
  A bunch of modules for parsing various MIME messages.
  .
