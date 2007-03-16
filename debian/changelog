@@ -1,3 +1,9 @@
+haskell-mime (1.2.3) unstable; urgency=low
+
+  * Removed -f flag from sendmail invocation
+
+ -- Jeremy Shaw <jeremy.shaw@linspireinc.com>  Thu, 15 Mar 2007 18:28:40 -0700
+
 haskell-mime (1.2.2) unstable; urgency=low
 
   * Doh. profiling libs for haskell-time are in libghc6-time-dev
