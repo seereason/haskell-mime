@@ -150,7 +150,7 @@ testSend msg =
 
 sendmail :: Message String -> IO (String, String, ExitCode)
 sendmail message =
-    do (inh, outh, errh, ph) <- runInteractiveProcess "/usr/sbin/sendmail" ["-t","-i", "-f", "jeremy.shaw@linspire.com"] Nothing Nothing
+    do (inh, outh, errh, ph) <- runInteractiveProcess "/usr/sbin/sendmail" ["-t","-i"] Nothing Nothing
 
        outm <- newEmptyMVar
        outs <- hGetContents outh
