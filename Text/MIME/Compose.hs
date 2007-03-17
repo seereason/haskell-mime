@@ -69,6 +69,12 @@ ppMailbox (AddrSpec localPart domainPart) =
 ppMailboxes :: [Mailbox] -> String
 ppMailboxes = concat . intersperse ", " . map ppMailbox
 
+ppAddress :: Address -> String
+ppAddress (MailboxAddress mb) = ppMailbox mb
+
+ppAddresses :: [Address] -> String
+ppAddresses = concat . intersperse ", " . map ppAddress
+
 data LineBreakStyle 
     = LF
     | CRLF
@@ -86,15 +92,13 @@ ppMessage lbs (RFC2822 headers body) =
       terminateCRLF l = (l ++) . ("\r\n" ++)
       blankLine = []
 
-ppAddress :: Address -> String
-ppAddress (MailboxAddress mb) = ppMailbox mb
-
 -- ppHeader :: (String, String) -> String
 -- ppHeader (f,v) = f ++ ": " ++ v
 
 -- NOTE: does not enforce line length limits
 ppHeader :: Header String -> [String]
 ppHeader (To mbs) = ["To: " ++ ppMailboxes mbs]
+ppHeader (ReplyTo addrs) = ["Reply-To: " ++ ppAddresses addrs]
 ppHeader (Date date) = ["Date: " ++ formatTime rfc2822TimeLocale rfc2822DateFormat date]
 ppHeader (Originator orig) = ppOriginator orig
 ppHeader (Subject str) = ["Subject: " ++ str]
@@ -124,6 +128,9 @@ from mb = From mb
 
 to :: [Mailbox] -> Header String
 to addrs = To addrs -- ("To", concat (intersperse ", " (map ppMailbox addrs)))
+
+replyTo :: [Address] -> Header String
+replyTo addrs = ReplyTo addrs -- ("To", concat (intersperse ", " (map ppMailbox addrs)))
 
 -- AHA! we should be consistent about when we do the escaping. Is it
 -- at pretty print time? If so, we need to make each optional header

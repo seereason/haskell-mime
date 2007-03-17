@@ -1,3 +1,9 @@
+haskell-mime (1.2.4) unstable; urgency=low
+
+  * Add Reply-To header to Compose/Type
+
+ -- Jeremy Shaw <jeremy.shaw@linspireinc.com>  Sat, 17 Mar 2007 11:09:38 -0700
+
 haskell-mime (1.2.3) unstable; urgency=low
 
   * Removed -f flag from sendmail invocation

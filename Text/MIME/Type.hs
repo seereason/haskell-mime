@@ -42,6 +42,7 @@ type Headers str = [Header str]
 -- ZonedTime has no Read instance, so..
 data Header str 
     = To [Mailbox]
+    | ReplyTo [Address]
     | Date ZonedTime
     | Originator Originator
     | Subject str
