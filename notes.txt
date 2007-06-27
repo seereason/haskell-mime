@@ -45,3 +45,56 @@ Does an AST help
 
 
 
+Creation and Modification Combinators
+-------------------------------------
+
+With the creation combinators, we can try to enforce rules about how
+many times a header must appear. There are three cases:
+
+ 1. Exactly one time
+ 2. Zero or one times
+ 3. Zero or more times
+
+If we are creating messages from scratch, then we can use HList style
+type-level hackery to ensure that the constraints are satisfied. 
+
+If we are modifying a message, things are a bit trickier, because:
+
+ 1. We don't know the expected type of the message until we parse
+    it. (ie. we don't know what headers will be present until
+    run-time).
+
+ 2. We might want to add a header to an invalid message with out
+    having to fix the invalidness of the message.
+
+ 3. Order of the headers fields is semantically meaningless (i think),
+    but should still be preserved
+
+The difficult case is headers that can appear only once. We could just
+make the functions that operate on fields that can only appear once
+*replace* a pre-existing occurence. This is a bit lame, because it
+hides some errors under the rug. For example, you may not realize that
+two pieces of code add a 'Subject' line. When you combine them,
+resulting in unexpected behaviour in many cases.
+
+Type-safe creation combinators are nice, modification combinators
+appear rather difficult to use -- especially when modifying broken
+messages.
+
+We can start by creating non-type system combinators, and add the
+type-safe interface on top later. This let's the user pick the
+appropriate interface for their needs.
+
+
+Extracting and Displaying
+-------------------------
+
+When extracting and displaying header fields, we are typically looking
+only for a few specific headers. Of course, in many cases, we still
+want to be able to display a message, even if an expected field is
+missing.
+
+When extracting/displaying, it seems like most instances will not
+benefit from extensive static type checking, since we have to deal
+with what ever came across the wire.
+
