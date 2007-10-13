@@ -1,3 +1,9 @@
+haskell-mime (1.2.5) unstable; urgency=low
+
+  * Add build dependency on ghc6-prof.
+
+ -- David Fox <ddssff@gmail.com>  Sat, 13 Oct 2007 12:08:09 +0000
+
 haskell-mime (1.2.4) unstable; urgency=low
 
   * Add Reply-To header to Compose/Type
