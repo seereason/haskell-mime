@@ -18,7 +18,7 @@ Description: A Haskell library for MIME processing
 Package: libghc6-mime-prof
 Section: libdevel
 Architecture: any
-Depends: ${haskell:Depends}, libghc6-time-dev (>= 1.1)
+Depends: ${haskell:Depends}, libghc6-time-prof (>= 1.1)
 Description: A Haskell library for MIME processing
  A bunch of modules for parsing various MIME messages.
  .
