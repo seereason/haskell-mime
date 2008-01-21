@@ -1,10 +1,9 @@
 Name:           MIME
-Version:        1.2.4
+Version:        1.2.5
 License:        BSD3
-License-File:	debian/copyright
 Author:         Jeremy Shaw
 Homepage:       http://www.n-heptane.com/nhlab
-Build-Depends:  base, parsec, time >= 1.1
+Build-Depends:  base, parsec, time >= 1.1, containers, old-time, old-locale, pretty, process
 Synopsis:       A library for processing MIME messages
 Exposed-modules:
         Text.MIME.Parse.MIME, Text.MIME.Codec.Base64, Text.MIME.Codec.QuotedPrintable, Text.MIME.Parse.RFC2045, Text.MIME.Parse.RFC2046, Text.MIME.Parse.DateTime, Text.MIME.Compose, Text.MIME.Type
