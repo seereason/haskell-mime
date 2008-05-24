@@ -1,6 +1,8 @@
 Name:           MIME
-Version:        1.2.4
+Version:        1.2.7
 License:        BSD3
+-- License-File:	debian/copyright
+Cabal-Version:  >= 1.2
 Author:         Jeremy Shaw
 Homepage:       http://www.n-heptane.com/nhlab
 Build-Depends:  base, parsec, time >= 1.1, containers, old-time, old-locale, pretty, process

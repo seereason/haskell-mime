@@ -7,7 +7,9 @@
 # from having to guess our platform (since we know it already)
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-
+CABAL_PACKAGE = $(shell dpkg-parsechangelog | sed "1s/source: haskell-//i; q")
+DOC_PACKAGE = haskell-$(CABAL_PACKAGE)-doc
+CABAL_NAME = $(shell ls *.cabal | head -n1 | sed 's/.cabal.*//')
 
 CFLAGS = -Wall -g
 
@@ -67,7 +69,6 @@ install-indep: build-indep
 
 	# Add here commands to install the package into debian/tmp
 	dh_haskell -i
-	#runhaskell ./Setup.hs haddock
 
 # Build architecture-independent files here.
 binary-indep: build-indep install-indep
