@@ -1,5 +1,5 @@
 Name:           MIME
-Version:        1.2.7
+Version:        1.2.8
 License:        BSD3
 -- License-File:	debian/copyright
 Cabal-Version:  >= 1.2
