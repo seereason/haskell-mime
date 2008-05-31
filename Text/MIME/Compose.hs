@@ -65,6 +65,8 @@ We probably also want:
 ppMailbox :: Mailbox -> String
 ppMailbox (AddrSpec localPart domainPart) =
     (bool id encodeQuotedString isDotAtom localPart) ++ ('@' : (bool id encodeDomainLiteral isDotAtom domainPart))
+ppMailbox (NameAddr displayName localPart domainPart) =
+    (bool id encodeQuotedString isDotAtom displayName) ++ " <" ++ (bool id encodeQuotedString isDotAtom localPart) ++ ('@' : (bool id encodeDomainLiteral isDotAtom domainPart)) ++">"
 
 ppMailboxes :: [Mailbox] -> String
 ppMailboxes = concat . intersperse ", " . map ppMailbox
@@ -271,6 +273,16 @@ nameAddr displayName localPart domainPart =
 
 -- * Escaping Stuff
 
+isWSP :: Char -> Bool
+isWSP ' ' = True
+isWSP '\t' = True
+isWSP _ = False
+
+-- this is a little bit bogus perhaps, but we want a predicate which
+-- we can use for testing if characters need escaping
+isFWS :: Char -> Bool
+isFWS c = isWSP c || (c == '\n') || (c == '\r')
+
 isDotAtom :: String -> Bool
 isDotAtom = all (\c -> isAtext c || (c == '.'))
 
@@ -308,7 +320,7 @@ encodeQuotedString str =
     '"' : foldr encode "\"" str
     where
       encode c
-          | isQtext c  = (c :)
+          | (isQtext c) || (isFWS c)  = (c :)
           | otherwise  = quotedPair c
 
 -- ** domain literal 
