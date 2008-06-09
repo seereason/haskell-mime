@@ -1,14 +1,23 @@
 Name:           MIME
 Version:        1.2.8
 License:        BSD3
--- License-File:	debian/copyright
-Cabal-Version:  >= 1.2
+License-File:   debian/copyright
 Author:         Jeremy Shaw
 Homepage:       http://www.n-heptane.com/nhlab
-Build-Depends:  base, parsec, time >= 1.1, containers, old-time, old-locale, pretty, process
+Category:       Codec
 Synopsis:       A library for processing MIME messages
+
+Cabal-Version:  >= 1.2
+Build-Depends:  base>3, parsec, time >= 1.1, containers, old-time,
+                old-locale, pretty, process
+build-type:     Simple
+data-files:     notes.txt, examples/TestMIME.hs, examples/Main.hs,
+                examples/RFC2045Test.hs, examples/Base64Test.hs
 Exposed-modules:
-        Text.MIME.Parse.MIME, Text.MIME.Codec.Base64, Text.MIME.Codec.QuotedPrintable, Text.MIME.Parse.RFC2045, Text.MIME.Parse.RFC2046, Text.MIME.Parse.DateTime, Text.MIME.Compose, Text.MIME.Type
+        Text.MIME.Parse.MIME, Text.MIME.Codec.Base64,
+        Text.MIME.Codec.QuotedPrintable, Text.MIME.Parse.RFC2045,
+        Text.MIME.Parse.RFC2046, Text.MIME.Parse.DateTime, Text.MIME.Compose,
+        Text.MIME.Type
 
 -- For more complex options see:
 -- http://www.haskell.org/ghc/docs/latest/html/Cabal/
