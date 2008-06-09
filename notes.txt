@@ -8,7 +8,7 @@ Things I want to do:
 Creation
 --------
 
- + via a domain specific language like oleg's html stuff
+ + via a domain specific language like Oleg's html stuff
  + via an algorithm or UI
 
 Extract
@@ -35,7 +35,7 @@ Creation can happen directly -- with intermediate AST.
 Does an AST help
 ----------------
 
- + transformation - definately, because there needs to be a way to
+ + transformation - definitely, because there needs to be a way to
  preserve the original formatting.
 
  + extract - AST might allow for formatting to be preserved if
@@ -56,7 +56,7 @@ many times a header must appear. There are three cases:
  3. Zero or more times
 
 If we are creating messages from scratch, then we can use HList style
-type-level hackery to ensure that the constraints are satisfied. 
+type-level hackery to ensure that the constraints are satisfied.
 
 If we are modifying a message, things are a bit trickier, because:
 
@@ -72,7 +72,7 @@ If we are modifying a message, things are a bit trickier, because:
 
 The difficult case is headers that can appear only once. We could just
 make the functions that operate on fields that can only appear once
-*replace* a pre-existing occurence. This is a bit lame, because it
+*replace* a pre-existing occurrence. This is a bit lame, because it
 hides some errors under the rug. For example, you may not realize that
 two pieces of code add a 'Subject' line. When you combine them,
 resulting in unexpected behaviour in many cases.
