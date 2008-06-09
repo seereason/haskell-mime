@@ -1,7 +1,7 @@
 Name:           MIME
 Version:        1.2.8
 License:        BSD3
-License-File:   debian/copyright
+License-File:   LICENSE
 Author:         Jeremy Shaw
 Homepage:       http://www.n-heptane.com/nhlab
 Category:       Codec
