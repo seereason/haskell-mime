@@ -1,3 +1,10 @@
+haskell-mime (1.2.9) unstable; urgency=low
+
+  * To: should be [Address] not [Mailbox] according to rfc2822
+  * add toAddressList, change 'to' function to use it
+
+ -- Jeremy Shaw <jeremy@n-heptane.com>  Mon, 21 Jul 2008 13:18:19 -0700
+
 haskell-mime (1.2.8) unstable; urgency=low
 
   * Fixed pretty-printing of name-addr field

@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 -- |Compose a MIME message
 module Text.MIME.Compose where
 
@@ -99,7 +100,7 @@ ppMessage lbs (RFC2822 headers body) =
 
 -- NOTE: does not enforce line length limits
 ppHeader :: Header String -> [String]
-ppHeader (To mbs) = ["To: " ++ ppMailboxes mbs]
+ppHeader (To addrs) = ["To: " ++ ppAddresses addrs]
 ppHeader (ReplyTo addrs) = ["Reply-To: " ++ ppAddresses addrs]
 ppHeader (Date date) = ["Date: " ++ formatTime rfc2822TimeLocale rfc2822DateFormat date]
 ppHeader (Originator orig) = ppOriginator orig
@@ -115,6 +116,21 @@ ppOriginator (FromList mbs senderMb) = [ "From: "  ++ ppMailboxes mbs
                                        ]
 -- * message combinators
 
+class ToAddressList a where
+    toAddressList :: a -> [Address]
+
+instance ToAddressList Address where
+    toAddressList a = [a]
+
+instance ToAddressList [Address] where
+    toAddressList = id
+
+instance ToAddressList Mailbox where
+    toAddressList mbx = [mailboxAddr mbx]
+
+instance ToAddressList [Mailbox] where
+    toAddressList mbxs = map mailboxAddr mbxs
+
 -- a minimal message
 -- does not includ Message-ID
 message :: Originator -> ZonedTime -> Headers String -> Body -> Message String
@@ -128,8 +144,8 @@ message originator date optionalHeaders body =
 from :: Mailbox -> Originator
 from mb = From mb
 
-to :: [Mailbox] -> Header String
-to addrs = To addrs -- ("To", concat (intersperse ", " (map ppMailbox addrs)))
+to :: (ToAddressList t) => t -> Header String
+to = To . toAddressList
 
 replyTo :: [Address] -> Header String
 replyTo addrs = ReplyTo addrs -- ("To", concat (intersperse ", " (map ppMailbox addrs)))
@@ -268,6 +284,12 @@ addrSpec localPart domainPart =
 nameAddr :: String -> String -> String -> Mailbox
 nameAddr displayName localPart domainPart =
     NameAddr  displayName localPart domainPart 
+
+mailboxAddr :: Mailbox -> Address
+mailboxAddr = MailboxAddress
+
+groupAddr :: Group -> Address
+groupAddr = GroupAddress
 
 -- (encodePhrase displayName)  (bool id encodeQuotedString isDotAtom localPart) (bool id encodeDomainLiteral isDotAtom domainPart)
 

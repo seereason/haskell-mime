@@ -1,11 +1,13 @@
+{-# LANGUAGE DeriveDataTypeable #-}
 module Text.MIME.Type where
 
 import Data.Time.LocalTime (ZonedTime(..))
 import Data.Time.Format ()
+import Data.Generics
 
 data ContentType 
     = ContentType (String, String) [Parameter]
-      deriving (Show, Read, Eq)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 data ContentTransferEncoding
     = SevenBit
@@ -13,7 +15,7 @@ data ContentTransferEncoding
     | Binary
     | QuotedPrintable
     | Base64
-      deriving (Show, Read, Eq)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 type Parameter = (String, String)
 
@@ -21,13 +23,14 @@ type Parameter = (String, String)
 data Message str
     = MIME (Headers str) (MIMEBody str)
     | RFC2822 (Headers str) [str]
-      deriving (Show, Read)
+      deriving Show
+
 
 data MIMEBody str
     = Multipart MultipartType [Message str]
     | Singlepart str
     | Message (Message str)
-      deriving (Show, Read)
+      deriving Show
 
 data MultipartType
     = Alternative
@@ -35,13 +38,15 @@ data MultipartType
     | Parallel
     | Mixed
     | OtherMultipart
-      deriving (Show, Read)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 type Headers str = [Header str]
 
 -- ZonedTime has no Read instance, so..
 data Header str 
-    = To [Mailbox]
+    = To [Address]
+    | Cc [Address]
+    | Bcc [Address]
     | ReplyTo [Address]
     | Date ZonedTime
     | Originator Originator
@@ -52,26 +57,27 @@ data Header str
 data Originator
     = From Mailbox
     | FromList [Mailbox] Mailbox
-      deriving (Read, Show)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 data Date = Rfc2822Date
-          deriving (Read, Show)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 data Body 
     = RFC2822Body [String]
-      deriving (Read, Show)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 data Address
     = MailboxAddress Mailbox
     | GroupAddress Group
-      deriving (Read, Show)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 type DisplayName = String
-data Group = Group DisplayName [Mailbox] deriving (Read, Show)
+data Group = Group DisplayName [Mailbox] 
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
 
 type LocalPart = String
 type DomainPart = String
 data Mailbox
     = AddrSpec LocalPart DomainPart
     | NameAddr DisplayName LocalPart DomainPart
-      deriving (Show, Read)
+      deriving (Show, Read, Eq, Ord, Data, Typeable)

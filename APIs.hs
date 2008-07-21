@@ -118,9 +118,6 @@ infixr 0 .*.
 empty :: [RawHeader]
 empty =  []
 
--- it does not seem entirely obvious that the operator *after* the
--- header is the one that selects whether a header will appear once or
--- multiple times.
 exampleHeaders =
     ( (setHeader (Subject "whee")) .
       (setHeader (Subject "bork")).
@@ -128,6 +125,9 @@ exampleHeaders =
       (addHeader (Keywords ["zip", "zap", "zop"]))
     )
 
+-- it does not seem entirely obvious that the operator *after* the
+-- header is the one that selects whether a header will appear once or
+-- multiple times.
 exampleHeaders2 :: [RawHeader]
 exampleHeaders2 =
     ((Subject "whee") .+. 

@@ -21,7 +21,6 @@ Transform
 
  + Convert email->NNTP, etc
 
-
 What this means
 ---------------
 
@@ -42,8 +41,6 @@ Does an AST help
  desired. Easy to writing something that 'flattens' the AST?
 
  + creation - easier to manipulate a partially formed document?
-
-
 
 Creation and Modification Combinators
 -------------------------------------
@@ -84,6 +81,10 @@ messages.
 We can start by creating non-type system combinators, and add the
 type-safe interface on top later. This let's the user pick the
 appropriate interface for their needs.
+
+We also do not know all the headers that can exist in-advance. For
+example, the X-* headers. Should users have to create a new combinator
+before they can create this extra headers ?
 
 
 Extracting and Displaying
