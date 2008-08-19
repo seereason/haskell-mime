@@ -132,7 +132,7 @@ instance ToAddressList [Mailbox] where
     toAddressList mbxs = map mailboxAddr mbxs
 
 -- a minimal message
--- does not includ Message-ID
+-- does not includ Message-ID, however sendmail will add that for us
 message :: Originator -> ZonedTime -> Headers String -> Body -> Message String
 message originator date optionalHeaders body =
     case body of

@@ -1,3 +1,9 @@
+haskell-mime (1.2.10) unstable; urgency=low
+
+  * Move Extra.Email from haskell-extra to haskell-mime
+
+ -- Jeremy Shaw <jeremy@n-heptane.com>  Tue, 19 Aug 2008 16:25:29 -0700
+
 haskell-mime (1.2.9) unstable; urgency=low
 
   * To: should be [Address] not [Mailbox] according to rfc2822

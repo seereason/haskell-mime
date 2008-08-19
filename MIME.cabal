@@ -1,5 +1,5 @@
 Name:           MIME
-Version:        1.2.9
+Version:        1.2.10
 License:        BSD3
 License-File:   LICENSE
 Author:         Jeremy Shaw
@@ -17,7 +17,7 @@ Exposed-modules:
         Text.MIME.Parse.MIME, Text.MIME.Codec.Base64,
         Text.MIME.Codec.QuotedPrintable, Text.MIME.Parse.RFC2045,
         Text.MIME.Parse.RFC2046, Text.MIME.Parse.DateTime, Text.MIME.Compose,
-        Text.MIME.Type
+        Text.MIME.Type, Extra.Email
 
 -- For more complex options see:
 -- http://www.haskell.org/ghc/docs/latest/html/Cabal/
