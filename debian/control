@@ -24,9 +24,9 @@ Description: A Haskell library for MIME processing
  .
  This package contains the libraries compiled for GHC 6.
 
-Package: haskell-mime-doc
+Package: libghc6-mime-doc
 Section: doc
-Architecture: all
+Architecture: any
 Depends: ghc6-doc, libghc6-base-doc, libghc6-time-doc
 Description: A Haskell library for MIME processing
  A bunch of modules for parsing various MIME messages.
