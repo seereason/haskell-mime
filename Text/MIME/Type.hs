@@ -78,6 +78,10 @@ data Group = Group DisplayName [Mailbox]
 type LocalPart = String
 type DomainPart = String
 data Mailbox
+    = AddrSpecMBX AddrSpec
+    | NameAddr DisplayName AddrSpec
+      deriving (Show, Read, Eq, Ord, Data, Typeable)
+
+data AddrSpec 
     = AddrSpec LocalPart DomainPart
-    | NameAddr DisplayName LocalPart DomainPart
       deriving (Show, Read, Eq, Ord, Data, Typeable)

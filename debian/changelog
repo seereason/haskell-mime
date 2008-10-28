@@ -1,3 +1,9 @@
+haskell-mime (1.2.11) unstable; urgency=low
+
+  * Changed handling type of Mailbox / AddrSpec a bit
+
+ -- Jeremy Shaw <jeremy@n-heptane.com>  Mon, 27 Oct 2008 17:35:52 -0700
+
 haskell-mime (1.2.10) unstable; urgency=low
 
   * Move Extra.Email from haskell-extra to haskell-mime

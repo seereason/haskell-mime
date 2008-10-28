@@ -64,9 +64,9 @@ We probably also want:
 -- * pretty-printers
 
 ppMailbox :: Mailbox -> String
-ppMailbox (AddrSpec localPart domainPart) =
+ppMailbox (AddrSpecMBX (AddrSpec localPart domainPart)) =
     (bool id encodeQuotedString isDotAtom localPart) ++ ('@' : (bool id encodeDomainLiteral isDotAtom domainPart))
-ppMailbox (NameAddr displayName localPart domainPart) =
+ppMailbox (NameAddr displayName (AddrSpec localPart domainPart)) =
     (bool id encodeQuotedString isDotAtom displayName) ++ " <" ++ (bool id encodeQuotedString isDotAtom localPart) ++ ('@' : (bool id encodeDomainLiteral isDotAtom domainPart)) ++">"
 
 ppMailboxes :: [Mailbox] -> String
@@ -277,13 +277,16 @@ dtext           =       NO-WS-CTL /     ; Non white space controls
 
 -}
 
-addrSpec :: String -> String -> Mailbox
-addrSpec localPart domainPart =
+addrSpec' :: String -> String -> AddrSpec
+addrSpec' localPart domainPart =
     AddrSpec localPart domainPart 
+
+addrSpec :: String ->  String -> Mailbox
+addrSpec localPart domainPart = AddrSpecMBX (addrSpec' localPart domainPart)
 
 nameAddr :: String -> String -> String -> Mailbox
 nameAddr displayName localPart domainPart =
-    NameAddr  displayName localPart domainPart 
+    NameAddr  displayName (AddrSpec localPart domainPart)
 
 mailboxAddr :: Mailbox -> Address
 mailboxAddr = MailboxAddress
