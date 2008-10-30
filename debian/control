@@ -1,33 +1,41 @@
 Source: haskell-mime
 Priority: optional
-Section: devel
-Maintainer: Jeremy Shaw <jeremy@n-heptane.com>
-Build-Depends: debhelper (>= 4.0.0), haskell-devscripts (>=0.5.11), ghc6 (>=6.4), ghc6-prof, libghc6-time-dev (>= 1.1), libghc6-time-prof (>= 1.1), libghc6-time-doc (>= 1.1), libghc6-parsec-dev, libghc6-parsec-prof, libghc6-parsec-doc
-Build-Depends-Indep: debhelper (>= 4.0.0), haddock, hugs (>= 98.200503.08), haskell-devscripts (>= 0.5.6), ghc6 (>= 6.4.1), ghc6-doc, libghc6-base-doc, libghc6-time-doc
-Standards-Version: 3.7.2.0
+Section: misc
+Maintainer: Jeremy Shaw <jeremy@seereason.com>
+Build-Depends: debhelper (>= 5.0),
+               haskell-devscripts-cdbs,
+               cabal-debian (>= 0.7),
+               ghc6 (>= 6.8),
+               ghc6-doc,
+               haddock,
+               ghc6-prof,
+               libghc6-parsec-prof,
+               libghc6-parsec-doc,
+               libghc6-time-prof (>= 1.1),
+               libghc6-time-doc (>= 1.1)
+Standards-Version: 3.7.2.2
+Homepage: http://www.n-heptane.com/nhlab
 
 Package: libghc6-mime-dev
-Section: libdevel
 Architecture: any
-Depends: ${haskell:Depends}, libghc6-time-dev (>= 1.1), libghc6-parsec-dev
-Description: A Haskell library for MIME processing
- A bunch of modules for parsing various MIME messages.
- .
- This package contains the libraries compiled for GHC 6.
+Section: libdevel
+Depends: ${haskell:Depends}
+Description: A library for processing MIME messages
+  .
+  This package contains the normal library files.
 
 Package: libghc6-mime-prof
-Section: libdevel
 Architecture: any
-Depends: ${haskell:Depends}, libghc6-time-prof (>= 1.1), libghc6-parsec-prof
-Description: A Haskell library for MIME processing
- A bunch of modules for parsing various MIME messages.
- .
- This package contains the libraries compiled for GHC 6.
+Section: libdevel
+Depends: ${haskell:Depends}
+Description: A library for processing MIME messages
+  .
+  This package contains the libraries compiled with profiling enabled.
 
 Package: libghc6-mime-doc
-Section: doc
 Architecture: any
-Depends: ghc6-doc, libghc6-base-doc, libghc6-time-doc
-Description: A Haskell library for MIME processing
- A bunch of modules for parsing various MIME messages.
-
+Section: libdevel
+Depends: ${haskell:Depends}
+Description: A library for processing MIME messages
+  .
+  This package contains the documentation files.

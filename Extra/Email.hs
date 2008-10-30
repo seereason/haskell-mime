@@ -1,5 +1,6 @@
 module Extra.Email 
     ( sendEmails
+    , sendEmail
     ) where
 
 import		 Control.Monad
