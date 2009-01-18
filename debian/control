@@ -5,14 +5,10 @@ Maintainer: Jeremy Shaw <jeremy@seereason.com>
 Build-Depends: debhelper (>= 5.0),
                haskell-devscripts-cdbs,
                cabal-debian (>= 0.7),
-               ghc6 (>= 6.8),
+               ghc6 (>= 6.10),
                ghc6-doc,
                haddock,
-               ghc6-prof,
-               libghc6-parsec-prof,
-               libghc6-parsec-doc,
-               libghc6-time-prof,
-               libghc6-time-doc
+               ghc6-prof
 Standards-Version: 3.7.2.2
 Homepage: http://www.n-heptane.com/nhlab
 
