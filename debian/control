@@ -3,7 +3,7 @@ Priority: optional
 Section: misc
 Maintainer: Jeremy Shaw <jeremy@seereason.com>
 Build-Depends: debhelper (>= 5.0),
-               haskell-devscripts-cdbs,
+               haskell-devscripts,
                cabal-debian (>= 0.7),
                ghc6 (>= 6.10),
                ghc6-doc,
