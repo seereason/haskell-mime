@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 5.0),
                ghc6-prof,
                libghc6-time-prof,
                libghc6-time-doc,
+               libghc6-parsec-dev,
                libghc6-parsec-prof,
                libghc6-parsec-doc
 Standards-Version: 3.7.2.2
