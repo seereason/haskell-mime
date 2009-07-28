@@ -10,9 +10,9 @@ Build-Depends: debhelper (>= 5.0),
                ghc6-prof,
                libghc6-time-prof,
                libghc6-time-doc,
-               libghc6-parsec2-dev,
-               libghc6-parsec2-prof,
-               libghc6-parsec2-doc
+               libghc6-parsec3-dev,
+               libghc6-parsec3-prof,
+               libghc6-parsec3-doc
 Standards-Version: 3.7.2.2
 Homepage: http://www.n-heptane.com/nhlab
 

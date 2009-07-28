@@ -1,5 +1,5 @@
 Name:           MIME
-Version:        1.2.13
+Version:        1.2.14
 License:        BSD3
 License-File:   LICENSE
 Author:         Jeremy Shaw
@@ -8,7 +8,7 @@ Category:       Codec
 Synopsis:       A library for processing MIME messages
 
 Cabal-Version:  >= 1.2
-Build-Depends:  base>3, parsec, time >= 1.1, containers, old-time,
+Build-Depends:  base>3, parsec >= 3, time >= 1.1, containers, old-time,
                 old-locale, pretty, process, syb
 build-type:     Simple
 data-files:     notes.txt, examples/TestMIME.hs, examples/Main.hs,

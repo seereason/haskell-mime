@@ -1,3 +1,9 @@
+haskell-mime (1.2.14) unstable; urgency=low
+
+  * Depend on parsec3 not parsec2
+
+ -- Jeremy Shaw <jeremy@seereason.com>  Tue, 28 Jul 2009 18:18:30 -0500
+
 haskell-mime (1.2.13) unstable; urgency=low
 
   * Add build dependency on cabal-debian
