@@ -13,7 +13,7 @@ import Data.Time
 import System.Exit
 import System.Locale
 import System.Process
-import System.IO
+import System.IO (hGetContents, hPutStr, hClose)
 
 
 import Text.PrettyPrint.HughesPJ

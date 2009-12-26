@@ -8,8 +8,6 @@ Build-Depends: debhelper (>= 5.0),
                ghc6-doc,
                haddock,
                ghc6-prof,
-               libghc6-time-prof,
-               libghc6-time-doc,
                libghc6-parsec3-dev,
                libghc6-parsec3-prof,
                libghc6-parsec3-doc
