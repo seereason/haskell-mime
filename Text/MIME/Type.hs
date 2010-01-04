@@ -3,7 +3,7 @@ module Text.MIME.Type where
 
 import Data.Time.LocalTime (ZonedTime(..))
 import Data.Time.Format ()
-import Data.Generics
+import Data.Data (Data, Typeable)
 
 data ContentType 
     = ContentType (String, String) [Parameter]

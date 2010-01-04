@@ -9,7 +9,7 @@ Synopsis:       A library for processing MIME messages
 
 Cabal-Version:  >= 1.2
 Build-Depends:  base>3, parsec >= 3, time >= 1.1, containers, old-time,
-                old-locale, pretty, process, syb
+                old-locale, pretty, process
 build-type:     Simple
 data-files:     notes.txt, examples/TestMIME.hs, examples/Main.hs,
                 examples/RFC2045Test.hs, examples/Base64Test.hs
