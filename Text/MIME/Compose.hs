@@ -1,4 +1,4 @@
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE CPP, FlexibleInstances #-}
 -- |Compose a MIME message
 module Text.MIME.Compose where
 
@@ -9,9 +9,12 @@ import Control.Exception (evaluate)
 import Data.Char (isDigit,ord)
 import Data.List
 import Data.Time
+import Prelude hiding (Word)
 
 import System.Exit
-import System.Locale
+#if !MIN_VERSION_time(1,5,0)
+import System.Locale (defaultTimeLocale)
+#endif
 import System.Process
 import System.IO (hGetContents, hPutStr, hClose)
 
