@@ -1,3 +1,9 @@
+haskell-mime (1.2.15) unstable; urgency=low
+
+  * Remove unused dependency
+
+ -- David Fox <dsf@seereason.com>  Fri, 14 Oct 2016 16:58:30 -0700
+
 haskell-mime (1.2.14) unstable; urgency=low
 
   * Depend on parsec3 not parsec2
@@ -105,4 +111,3 @@ haskell-mime (1.0-1) unstable; urgency=low
   * Initial Debian package.
 
  -- Jeremy Shaw <jeremy.shaw@n-heptane.com>  Mon, 22 May 2006 16:30:36 -0700
-
